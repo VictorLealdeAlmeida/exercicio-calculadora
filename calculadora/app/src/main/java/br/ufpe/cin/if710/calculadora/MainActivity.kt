@@ -2,6 +2,10 @@ package br.ufpe.cin.if710.calculadora
 
 import android.app.Activity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import java.util.*
 
 class MainActivity : Activity() {
 
@@ -9,6 +13,97 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
+    fun inserirTexto(view: View){
+        var texto = findViewById(R.id.text_calc) as TextView
+
+        var textoExistente: String = texto.text.toString()
+        var caracter = ""
+
+        when (view.getId()) {
+            R.id.btn_7 -> {
+                caracter = "7"
+            }
+            R.id.btn_8 -> {
+                caracter = "8"
+            }
+            R.id.btn_9 -> {
+                caracter = "9"
+            }
+            R.id.btn_Divide -> {
+                caracter = "/"
+            }
+            R.id.btn_4 -> {
+                caracter = "4"
+            }
+            R.id.btn_5 -> {
+                caracter = "5"
+            }
+            R.id.btn_6 -> {
+                caracter = "6"
+            }
+            R.id.btn_Multiply -> {
+                caracter = "*"
+            }
+            R.id.btn_1 -> {
+                caracter = "1"
+            }
+            R.id.btn_2 -> {
+                caracter = "2"
+            }
+            R.id.btn_3 -> {
+                caracter = "3"
+            }
+            R.id.btn_Subtract -> {
+                caracter = "-"
+            }
+            R.id.btn_Dot -> {
+                caracter = "."
+            }
+            R.id.btn_0 -> {
+                caracter = "0"
+            }
+            R.id.btn_Equal -> {
+                caracter = "="
+            }
+            R.id.btn_Add -> {
+                caracter = "+"
+            }
+            R.id.btn_LParen -> {
+                caracter = "("
+            }
+            R.id.btn_RParen -> {
+                caracter = ")"
+            }
+            R.id.btn_Power -> {
+                caracter = "ˆ"
+            }
+            R.id.btn_Clear -> {
+                caracter = ""
+                textoExistente = ""
+            }
+            else -> {}
+        }
+
+        texto.setText(textoExistente + caracter)
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //Como usar a função:
     // eval("2+2") == 4.0
