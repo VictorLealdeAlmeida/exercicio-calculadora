@@ -6,14 +6,17 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import java.util.*
+import android.util.Log
 
 class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
     }
 
+    //ATIVIDADE 1 - fun que é chamada quando algum dos botoes forem chamados, indentifica o botao e acrescentar o valor do botao ao texto do TextField
     fun inserirTexto(view: View){
         var texto = findViewById(R.id.text_calc) as TextView
 
@@ -64,7 +67,10 @@ class MainActivity : Activity() {
                 caracter = "0"
             }
             R.id.btn_Equal -> {
-                caracter = "="
+                //ATIVIDADE 2 - Caso responsavel em chamar eval e calcular a operação
+                caracter = eval(textoExistente).toString()
+                textoExistente = ""
+
             }
             R.id.btn_Add -> {
                 caracter = "+"
