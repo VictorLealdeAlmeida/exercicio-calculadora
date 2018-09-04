@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import java.util.*
 import android.util.Log
+import android.widget.Toast
 
 class MainActivity : Activity() {
 
@@ -67,9 +68,19 @@ class MainActivity : Activity() {
                 caracter = "0"
             }
             R.id.btn_Equal -> {
-                //ATIVIDADE 2 - Caso responsavel em chamar eval e calcular a operação
-                caracter = eval(textoExistente).toString()
-                textoExistente = ""
+
+
+                try {
+                    //ATIVIDADE 2 - Caso responsavel em chamar eval e calcular a operação
+                    caracter = eval(textoExistente).toString()
+                    textoExistente = ""
+                } catch (e: Exception) {
+                    //ATIVIDADE 3 - Mostrar o erro em caso de formato incorreto de operação
+                    Toast.makeText(this, "Operação incorreta", Toast.LENGTH_SHORT).show()
+                }
+
+
+
 
             }
             R.id.btn_Add -> {
@@ -96,16 +107,6 @@ class MainActivity : Activity() {
 
 
     }
-
-
-
-
-
-
-
-
-
-
 
 
 
